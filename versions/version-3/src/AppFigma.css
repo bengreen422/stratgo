@@ -1,0 +1,137 @@
+.score-panel {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 20px 0 10px 0;
+  font-size: 1.2rem;
+}
+.score-panel .player1 {
+  color: #35A0FF;
+  font-weight: bold;
+}
+.score-panel .player2 {
+  color: #FFA600;
+  font-weight: bold;
+}
+
+.board-row {
+  display: flex;
+}
+
+.board-cell {
+  width: 28px;
+  height: 28px;
+  border: 1px solid #aaa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+  user-select: none;
+  transition: background 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  background: #fff;
+}
+.board-cell.center {
+  background: #ffe680 !important;
+}
+.board-cell.player1 {
+  background: #35A0FF !important;
+  color: #fff;
+}
+.board-cell.player2 {
+  background: #FFA600 !important;
+  color: #fff;
+}
+.board-cell.selected {
+  background: #90ee90 !important;
+  color: #222;
+}
+.board-cell.claimed {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.board-cell:not(.claimed):hover {
+  box-shadow: 0 0 0 2px #bbb;
+  background: #f0f8ff;
+}
+
+.pulse {
+  animation: pulse 0.5s;
+}
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 #35A0FF44; }
+  70% { box-shadow: 0 0 0 10px #35A0FF00; }
+  100% { box-shadow: 0 0 0 0 #35A0FF00; }
+}
+
+.encircle-pulse {
+  animation: encircle-pulse 0.7s;
+}
+@keyframes encircle-pulse {
+  0% { box-shadow: 0 0 0 0 #FFA60044; }
+  70% { box-shadow: 0 0 0 12px #FFA60000; }
+  100% { box-shadow: 0 0 0 0 #FFA60000; }
+}
+
+.move-history {
+  margin-top: 30px;
+  text-align: left;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.move-history .player1 {
+  color: #35A0FF;
+}
+.move-history .player2 {
+  color: #FFA600;
+}
+
+.submit-word-btn {
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 16px 48px;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 0 auto;
+  display: block;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  cursor: pointer;
+  margin-top: 10px;
+}
+.submit-word-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.player-score-left {
+  color: #3399ff;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 1;
+  text-align: left;
+}
+.player-score-right {
+  color: #FFA600;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 1;
+  text-align: right;
+}
+.player-score-left + div,
+.player-score-right + div {
+  font-size: 18px;
+  font-weight: bold;
+}
+@media (max-width: 700px) {
+  .player-score-left, .player-score-right {
+    font-size: 32px;
+    min-width: 80px;
+  }
+  .submit-word-btn {
+    font-size: 16px;
+    padding: 10px 24px;
+  }
+} 
