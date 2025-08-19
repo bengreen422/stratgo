@@ -11,7 +11,7 @@ interface GameRecord {
   status: string;
 }
 
-interface Analytics {
+interface AnalyticsData {
   wordLengthDistribution: Array<{ word: string; word_length: number }>;
   playerPerformance: Array<{ player: string; avg_score: number; total_moves: number }>;
   gameDuration: { avg_duration_minutes: number; total_completed_games: number };
@@ -19,7 +19,7 @@ interface Analytics {
 
 const Analytics: React.FC = () => {
   const [games, setGames] = useState<GameRecord[]>([]);
-  const [analytics, setAnalytics] = useState<Analytics | null>(null);
+  const [analytics, setAnalytics] = useState<AnalyticsData | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

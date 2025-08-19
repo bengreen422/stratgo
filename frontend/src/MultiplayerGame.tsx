@@ -27,22 +27,7 @@ function getRandomLetter() {
   return weightedLetters[Math.floor(Math.random() * weightedLetters.length)];
 }
 
-// Hexagonal board generation
-function generateHexagonalBoard(rows = 15) {
-  const board: string[][] = [];
-  const tilesPerRow = [8, 9, 10, 11, 12, 13, 14, 15, 14, 13, 12, 11, 10, 9, 8];
-  
-  for (let row = 0; row < rows; row++) {
-    const cellsInRow = tilesPerRow[row];
-    const rowCells: string[] = [];
-    for (let col = 0; col < cellsInRow; col++) {
-      rowCells.push(getRandomLetter());
-    }
-    board.push(rowCells);
-  }
-  
-  return board;
-}
+
 
 const scoreTable: { [len: number]: number } = {
   2: 2, 3: 3, 4: 4, 5: 6, 6: 8, 7: 11, 8: 14, 9: 19, 10: 24
