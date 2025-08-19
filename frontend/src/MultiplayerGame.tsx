@@ -121,7 +121,9 @@ const MultiplayerGame: React.FC = () => {
       // Calculate scores from moves
       const newScores = { 'Player 1': 0, 'Player 2': 0 };
       gameState.moves?.forEach((move: any) => {
-        newScores[move.player] += move.score + move.capturePoints;
+        if (move.player === 'Player 1' || move.player === 'Player 2') {
+          newScores[move.player] += move.score + move.capturePoints;
+        }
       });
       setScores(newScores);
     });
