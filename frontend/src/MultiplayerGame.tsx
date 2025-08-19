@@ -23,9 +23,7 @@ letterFrequencies.forEach(({ letter, freq }) => {
   for (let i = 0; i < Math.round(freq * 10); i++) weightedLetters.push(letter);
 });
 
-function getRandomLetter() {
-  return weightedLetters[Math.floor(Math.random() * weightedLetters.length)];
-}
+
 
 
 
