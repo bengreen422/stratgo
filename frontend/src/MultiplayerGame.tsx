@@ -122,7 +122,7 @@ const MultiplayerGame: React.FC = () => {
       const newScores = { 'Player 1': 0, 'Player 2': 0 };
       gameState.moves?.forEach((move: any) => {
         if (move.player === 'Player 1' || move.player === 'Player 2') {
-          newScores[move.player] += move.score + move.capturePoints;
+          newScores[move.player as keyof typeof newScores] += move.score + move.capturePoints;
         }
       });
       setScores(newScores);
