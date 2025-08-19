@@ -1,0 +1,190 @@
+.App {
+  text-align: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Hexagonal cell styles */
+.hex-cell {
+  width: 40px;
+  height: 46px;
+  background: #fff; /* White for unselected, unclaimed tiles */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+  user-select: none;
+  margin: 0;
+  box-sizing: border-box;
+  float: left;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+/* Add black background to the board container to color space between tiles */
+.hex-board-container {
+  background: #000;
+  padding: 1px;
+  border-radius: 8px;
+}
+
+.hex-cell::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: inherit;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  z-index: -1;
+}
+
+.hex-cell > * {
+  transform: rotate(-30deg);
+  z-index: 1;
+  position: relative;
+}
+
+.hex-cell:hover {
+  background: #f0f0f0;
+  z-index: 5;
+}
+
+.hex-cell:hover::after {
+  background: #f0f0f0;
+}
+
+.hex-cell.selected {
+  background: #CBE7FF; /* Default selected color (Player 1) - light blue */
+  color: white;
+  z-index: 10;
+}
+
+.hex-cell.selected::after {
+  background: #CBE7FF;
+}
+
+.hex-cell.selected.player2-selected {
+  background: #FFE0A7; /* Player 2 selected color - warm peach/cream */
+}
+
+.hex-cell.selected.player2-selected::after {
+  background: #FFE0A7;
+}
+
+.hex-cell.claimed {
+  background: #ddd;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.hex-cell.claimed::after {
+  background: #ddd;
+}
+
+.hex-cell.player1.claimed {
+  background: #3399ff; /* Blue to match Player 1 score color */
+  color: #333;
+}
+
+.hex-cell.player1.claimed::after {
+  background: #3399ff;
+}
+
+.hex-cell.player2.claimed {
+  background: #FFA600; /* Orange to match Player 2 score color */
+  color: #333;
+}
+
+.hex-cell.player2.claimed::after {
+  background: #FFA600;
+}
+
+.hex-cell.pulse {
+  animation: pulse 0.7s ease-in-out;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+/* Center tile of 8th row (row 7, 0-indexed) - 15 tiles, center is at index 7 */
+.hex-cell.center-tile {
+  background: #808080; /* Grey background */
+}
+
+.hex-cell.center-tile::after {
+  background: #808080;
+}
+
+/* Legacy square cell styles (kept for compatibility) */
+.board-cell {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: pointer;
+  background: #fff;
+  transition: background-color 0.2s;
+}
+
+.board-cell:hover {
+  background: #f0f0f0;
+}
+
+.board-cell.selected {
+  background: #4CAF50;
+  color: white;
+}
+
+.board-cell.claimed {
+  background: #ddd;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.board-cell.player1.claimed {
+  background: #ffcccc;
+  color: #333;
+}
+
+.board-cell.player2.claimed {
+  background: #cce0ff;
+  color: #333;
+}
+
+.board-cell.pulse {
+  animation: pulse 0.7s ease-in-out;
+}
+
+/* Submit button styles */
+.submit-word-btn:hover {
+  background: #333 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+}
+
+.submit-word-btn:disabled {
+  background: #ccc !important;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none !important;
+}
+
+/* Player score styles */
+.player-score-left, .player-score-right {
+  transition: transform 0.2s ease;
+}
+
+.player-score-left:hover, .player-score-right:hover {
+  transform: scale(1.05);
+}
