@@ -1,10 +1,19 @@
 const express = require('express');
 const cors = require('cors');
 const { v4: uuidv4 } = require('uuid'); // npm install uuid
+const path = require('path');
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+// Serve static files
+app.use(express.static(path.join(__dirname, 'frontend/public')));
+
+// Serve the dictionary file
+app.get('/words_alpha.txt', (req, res) => {
+  res.sendFile(path.join(__dirname, 'words_alpha.txt'));
+});
 
 const games = {};
 

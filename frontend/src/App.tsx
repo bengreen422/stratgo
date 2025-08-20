@@ -1,11 +1,11 @@
 import React from 'react';
-import MultiplayerGame from './MultiplayerGame';
+import SinglePlayerGame from './SinglePlayerGame';
 import './App.css';
 import './AppFigma.css';
 import './Analytics.css';
 
 function App() {
-  return <MultiplayerGame />;
+  return <SinglePlayerGame />;
 }
 
 export default App; 
