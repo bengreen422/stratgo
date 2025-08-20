@@ -320,8 +320,8 @@ const PORT = process.env.PORT || 4000;
 
 // Initialize database and start server
 initializeDatabase().then(() => {
-  server.listen(PORT, () => {
-    console.log(`Production server running on http://localhost:${PORT}`);
+  server.listen(PORT, '0.0.0.0', () => {
+    console.log(`Production server running on port ${PORT}`);
     console.log(`Socket.io server ready for real-time connections`);
   });
 }); 
