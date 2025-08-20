@@ -92,7 +92,7 @@ const MultiplayerGame: React.FC = () => {
 
   // Initialize socket connection
   useEffect(() => {
-    const newSocket = io('https://stratgo-production.up.railway.app');
+    const newSocket = io('https://5b27d1b8a4e7.ngrok-free.app');
     setSocket(newSocket);
 
     newSocket.on('game-state', (gameState) => {
