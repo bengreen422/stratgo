@@ -328,6 +328,8 @@ const PORT = process.env.PORT || 4000;
 initializeDatabase().then(() => {
   server.listen(PORT, '0.0.0.0', () => {
     console.log(`Production server running on port ${PORT}`);
+    console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
+    console.log(`Frontend URL: ${process.env.FRONTEND_URL || 'not set'}`);
     console.log(`Socket.io server ready for real-time connections`);
   });
 }); 
