@@ -13,7 +13,7 @@
   "description": "",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^5.1.0",
+    "express": "^4.18.2",
     "node-fetch": "^3.3.2",
     "react-markdown": "^10.1.0",
     "uuid": "^11.1.0",

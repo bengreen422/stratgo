@@ -7,12 +7,17 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Serve static files
-app.use(express.static(path.join(__dirname, 'frontend/public')));
+// Serve static files from the built React app
+app.use(express.static(path.join(__dirname, 'frontend/build')));
 
 // Serve the dictionary file
 app.get('/words_alpha.txt', (req, res) => {
   res.sendFile(path.join(__dirname, 'words_alpha.txt'));
+});
+
+// Serve the React app for any other routes
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'frontend/build/index.html'));
 });
 
 const games = {};
